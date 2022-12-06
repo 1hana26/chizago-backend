@@ -21,4 +21,11 @@ export class ChatService {
     @InjectRepository(MatchChatRoom)
     private readonly matchChatRoomRepository: Repository<MatchChatRoom>,
   ) {}
+  findOne({ writerID }) {
+    return this.matchChatRoomRepository.findOne({
+      where: {
+        host: writerID,
+      },
+    });
+  }
 }
